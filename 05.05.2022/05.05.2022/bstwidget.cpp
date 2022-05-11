@@ -47,11 +47,11 @@ void paintPart(node* currentNode, double dx, double dy, double scale, QPainter& 
 	}
 	if (currentNode->left != nullptr) {
 		painter.drawLine(dx - 0.5 * scale, dy + 0.5 * scale, dx - 1.75 * scale, dy + 2 * scale);
-		paintPart(currentNode->left, dx - 1.75 * scale, dy + 2 * scale, 0.5*scale, painter);
+		paintPart(currentNode->left, dx - 1.75 * scale, dy + 2 * scale, 0.5 * scale, painter);
 	}
 	if (currentNode->right != nullptr) {
 		painter.drawLine(dx + 0.5 * scale, dy + 0.5 * scale, dx + 1.75 * scale, dy + 2 * scale);
-		paintPart(currentNode->right, dx + 1.75 * scale , dy + 2 * scale, 0.5* scale, painter);
+		paintPart(currentNode->right, dx + 1.75 * scale, dy + 2 * scale, 0.5 * scale, painter);
 	}
 }
 void bstwidget::paintEvent(QPaintEvent* event) {

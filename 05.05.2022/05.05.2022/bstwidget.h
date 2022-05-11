@@ -10,8 +10,7 @@ class bstwidget : public QMainWindow
 
 public:
     bstwidget(QWidget *parent = Q_NULLPTR);
-    ~bstwidget() {};
-
+    ~bstwidget() = default;
 protected:
     void paintEvent(QPaintEvent* event);
 private:

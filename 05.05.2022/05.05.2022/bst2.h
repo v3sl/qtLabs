@@ -12,7 +12,7 @@ public:
 private:
 	myArrayNode* BSTArray;
 	int BSTArraySize;
-	void resize(int size);
+	void resize(int delta);
 	void insert(int data, int index);
 	void inorder(int index);
 };

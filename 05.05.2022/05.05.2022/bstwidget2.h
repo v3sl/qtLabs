@@ -4,13 +4,13 @@
 #include "qpainter.h"
 #include "bst2.h"
 
-class bstwidget : public QMainWindow
+class bstwidget2 : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    bstwidget(QWidget* parent = Q_NULLPTR);
-    ~bstwidget() {};
+    bstwidget2(QWidget* parent = Q_NULLPTR);
+    ~bstwidget2() = default;
 
 protected:
     void paintEvent(QPaintEvent* event);

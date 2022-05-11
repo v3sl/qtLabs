@@ -17,22 +17,9 @@ bstwidget2::bstwidget2(QWidget* parent) : QMainWindow(parent) {
 	tree.insert(43);
 	tree.insert(49);
 	tree.insert(6);
-	tree.insert(8);
-	tree.insert(11);
-	tree.insert(50);
-	tree.insert(48);
-	tree.insert(124);
-	tree.insert(122);
-	tree.insert(41);
-	tree.insert(31);
-	tree.insert(33);
-	tree.insert(26);
-	tree.insert(24);
 }
-void paintPart(BST2 tree,int currentIndex, double dx, double dy, double scale, QPainter& painter) {
-	if (tree.getLeafByIndex(currentIndex).isFilled() == 0)
-		return;
-	else {
+void paintPart(BST2& tree,int currentIndex, double dx, double dy, double scale, QPainter& painter) {
+	if (tree.getLeafByIndex(currentIndex).isFilled() == 1) {
 		painter.drawEllipse(dx - 0.5 * scale, dy, scale, scale);
 		int currentNodeData = tree.getLeafByIndex(currentIndex).getData();
 		int n = 0;
@@ -43,13 +30,13 @@ void paintPart(BST2 tree,int currentIndex, double dx, double dy, double scale, Q
 		n += (currentNodeData == 0 ? 1 : int(log10(currentNodeData) + 1));
 		QFont font("Times", 0.25 * scale);
 		painter.setFont(font);
-		painter.drawText(dx - 0.125 * n * scale, dy + 0.625 * scale, QString::number(tree.getLeafByIndex(currentIndex).getData()));
+		painter.drawText(dx - 0.125 * n * scale, dy + 0.625 * scale, QString::number(currentNodeData));
 	}
-	if (tree.getLeafByIndex(2 * currentIndex + 1).isFilled() != 0) {
+	if (tree.getLeafByIndex(2 * currentIndex + 1).isFilled() == 1) {
 		painter.drawLine(dx - 0.5 * scale, dy + 0.5 * scale, dx - 1.75 * scale, dy + 2 * scale);
-		paintPart(tree, 2*currentIndex+1, dx - 1.75 * scale, dy + 2 * scale, 0.5 * scale, painter);
+		paintPart(tree, 2 * currentIndex + 1, dx - 1.75 * scale, dy + 2 * scale, 0.5 * scale, painter);
 	}
-	if (tree.getLeafByIndex(2 * currentIndex + 2).isFilled() != 0) {
+	if (tree.getLeafByIndex(2 * currentIndex + 2).isFilled() == 1) {
 		painter.drawLine(dx + 0.5 * scale, dy + 0.5 * scale, dx + 1.75 * scale, dy + 2 * scale);
 		paintPart(tree, 2 * currentIndex + 2, dx + 1.75 * scale, dy + 2 * scale, 0.5 * scale, painter);
 	}
@@ -58,7 +45,7 @@ void bstwidget2::paintEvent(QPaintEvent* event) {
 	Q_UNUSED(event);
 	QRect widgetRect = this->rect();
 	QPainter painter(this);
-	painter.setPen(QPen(Qt::blue, 2.5));
+	painter.setPen(QPen(Qt::green, 2.5));
 	painter.setBrush(QBrush(Qt::gray));
 	double dx = widgetRect.width() / 2.0;
 	double dy = 0;

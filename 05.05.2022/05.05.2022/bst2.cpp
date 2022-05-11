@@ -2,27 +2,35 @@
 #include "bst2.h"
 
 BST2::BST2() {
-	BSTArraySize = 0;
+	BSTArraySize = 1;
 	BSTArray = new myArrayNode[BSTArraySize];
+	myArrayNode temp(0, 0);
+	BSTArray[0] = temp;
 }
 BST2::~BST2() { delete[] BSTArray; }
 void BST2::insert(int data) { insert(data, 0); }
 void BST2::inorder() { inorder(0); }
 myArrayNode BST2::getLeafByIndex(int index) { return BSTArray[index]; };
-void BST2::resize(int size) {
-	myArrayNode* newBSTArray = new myArrayNode[BSTArraySize + size];
+
+//!!!void BST2::resize(int size) {
+void BST2::resize(int newSize) {
+	std::cout << "resize: " << BSTArraySize << " -> " << newSize << '\n';
+
+	//!!!	myArrayNode* newBSTArray = new myArrayNode[BSTArraySize + size];
+	myArrayNode* newBSTArray = new myArrayNode[newSize];
 	for (int i = 0; i < BSTArraySize; ++i)
 		newBSTArray[i] = BSTArray[i];
-	BSTArraySize += size;
+	BSTArraySize = newSize;
 	delete[] BSTArray;
 	BSTArray = newBSTArray;
-	myArrayNode temp(0, 0);
-	for (int i = 0; i < size; ++i)
-		BSTArray[BSTArraySize + i] = temp;
+	//myArrayNode temp(0, 0);
+	//for (int i = 0; i < size; ++i)
+	//	BSTArray[BSTArraySize + i] = temp;
 }
+
 void BST2::insert(int data, int index) {
-	if (index > BSTArraySize - 1) {
-		resize(index - BSTArraySize + 1);
+	if (index >= BSTArraySize) {
+		resize(index + 1);
 		myArrayNode leaf(data, 1);
 		BSTArray[index] = leaf;
 	}

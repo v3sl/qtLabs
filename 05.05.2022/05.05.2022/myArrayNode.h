@@ -5,14 +5,12 @@
 class myArrayNode {
 public:
 	myArrayNode(int data = 0, bool fill = 0);
-	~myArrayNode();
-	myArrayNode operator=(myArrayNode inputNode);
-	int getData();
+	int getData() const;
 	bool isFilled();
-	bool operator < (myArrayNode compareNode);
-	bool operator > (myArrayNode compareNode);
-	friend std::ostream& operator <<(std::ostream& out, myArrayNode node);
+	bool operator < (const myArrayNode& compareNode);
+	bool operator > (const myArrayNode& compareNode);
 private:
 	int data;
 	bool fill;
 };
+std::ostream& operator <<(std::ostream& out, const myArrayNode& node);
