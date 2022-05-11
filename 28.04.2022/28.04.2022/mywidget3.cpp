@@ -1,7 +1,7 @@
 #include "mywidget3.h"
 
 MyWidget3::MyWidget3(QWidget* parent) : QWidget(parent) {
-	int size = rand()%10+1;
+	int size = rand() % 10 + 1;
 	for (int i = 0; i < size; ++i) {
 		std::vector<int> temp;
 		for (int j = 0; j < size; ++j) {
@@ -30,18 +30,17 @@ void MyWidget3::paintEvent(QPaintEvent* event) {
 			QString str;
 			switch (data[i][j]) {
 			case -1:
-				str = "";
 				break;
 			case 0:
-				str = "0";
+				painter.drawEllipse(i * dx + scale, j * dy + scale, 3 * scale, 3 * scale);
 				break;
 			case 1:
-				str = "X";
+				painter.drawLine(i * dx + scale, j * dy + scale, (i + 1) * dx - scale, (j + 1) * dy - scale);
+				painter.drawLine((i + 1) * dx - scale, j * dy + scale, i * dx + scale, (j + 1) * dy - scale);
 				break;
 			default:
 				break;
 			}
-			painter.drawText(i * dx + 0.5 * dx - 0.5 * scale, j * dy + 0.5 * dy + 0.5 * scale, str);
 		}
 	}
 }

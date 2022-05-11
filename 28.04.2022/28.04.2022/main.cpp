@@ -11,6 +11,7 @@ int main(int argc, char* argv[]) {
 	MyWidget2 w2;
 	w2.show();
 	MyWidget3 w3;
+	w3.setFixedSize(600, 600);
 	w3.show();
 	return app.exec();
 }
