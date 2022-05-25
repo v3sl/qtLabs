@@ -41,6 +41,14 @@ void Widget::onClickedButton() {
 		lostMesasge.setText("you lost");
 		lostMesasge.exec();
 	}
+	if (isDraw()) {
+		for (int i = 0; i < 9; ++i)
+			buttons[i]->setValue(-1);
+		update();
+		QMessageBox lostMesasge;
+		lostMesasge.setText("draw");
+		lostMesasge.exec();
+	}
 	update();
 }
 bool Widget::isWin() {
@@ -66,4 +74,11 @@ bool Widget::isLose() {
 		(buttons[2]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[6]->getValue() == 0))
 		return true;
 	return false;
+}
+bool Widget::isDraw() {
+	for (int i = 0; i < 9; ++i) {
+		if (buttons[i]->getValue() == -1)
+			return false;
+	}
+	return true;
 }

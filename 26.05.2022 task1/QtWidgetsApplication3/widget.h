@@ -16,5 +16,6 @@ private:
 	MyButton* buttons[size * size];
 	bool isWin();
 	bool isLose();
+	bool isDraw();
 };
-#endif // WIDGET_H
+#endif 

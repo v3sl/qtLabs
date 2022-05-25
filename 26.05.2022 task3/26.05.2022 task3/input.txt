@@ -1,6 +1,0 @@
-televisor sfs 12.02.2005  15.02.2020 ready
-televisor sfs 14.02.2005  01.05.2022 ready
-televisor sfs 14.02.2005  18.02.2021 ready
-televisor sfs 12.02.2005  22.04.2022 ready
-televisor sfs 12.02.2005  24.05.2022 not_ready
-televisor sfs 12.02.2005  25.05.2022 not_ready

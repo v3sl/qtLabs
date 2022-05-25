@@ -1,3 +1,4 @@
+#include <QPainter>
 #include "mybutton.h"
 
 MyButton::MyButton() : value(-1) {}

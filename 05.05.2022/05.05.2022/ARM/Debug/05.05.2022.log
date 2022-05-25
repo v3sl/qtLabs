@@ -1,2 +1,0 @@
-﻿  Reading Qt configuration (D:/Qt/5.15.2/msvc2019_64/bin/qmake)
-ARM\Debug\bstwidget2.obj : fatal error LNK1112: тип компьютера модуля "x86" конфликтует с типом целевого компьютера "ARM"
