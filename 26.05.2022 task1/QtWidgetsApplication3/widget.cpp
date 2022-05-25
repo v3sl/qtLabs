@@ -19,76 +19,13 @@ void Widget::onClickedButton() {
 		return;
 	if (source->getValue() == -1)
 		source->setValue(1);
-	if (buttons[0]->getValue() == 1 && buttons[1]->getValue() == 1 && buttons[2]->getValue() == 1) {
+	if (isWin()) {
 		for (int i = 0; i < 9; ++i)
 			buttons[i]->setValue(-1);
 		update();
 		QMessageBox winMesasge;
 		winMesasge.setText("you won");
 		winMesasge.exec();
-
-	}
-	if (buttons[3]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[5]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
-	}
-	if (buttons[6]->getValue() == 1 && buttons[7]->getValue() == 1 && buttons[8]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
-	}
-	if (buttons[0]->getValue() == 1 && buttons[3]->getValue() == 1 && buttons[6]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
-	}
-	if (buttons[1]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[7]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
-	}
-	if (buttons[2]->getValue() == 1 && buttons[5]->getValue() == 1 && buttons[8]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
-	}
-	if (buttons[0]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[8]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
-	}
-	if (buttons[2]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[6]->getValue() == 1) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox winMesasge;
-		winMesasge.setText("you won");
-		winMesasge.exec();
-		return;
 	}
 	for (int i = 0; i < 9; ++i) {
 		if (buttons[i]->getValue() == -1) {
@@ -96,77 +33,37 @@ void Widget::onClickedButton() {
 			break;
 		}
 	}
-	if (buttons[0]->getValue() == 0 && buttons[1]->getValue() == 0 && buttons[2]->getValue() == 0) {
+	if (isLose()) {
 		for (int i = 0; i < 9; ++i)
 			buttons[i]->setValue(-1);
 		update();
 		QMessageBox lostMesasge;
 		lostMesasge.setText("you lost");
 		lostMesasge.exec();
-		return;
-	}
-	if (buttons[3]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[5]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
-	}
-	if (buttons[6]->getValue() == 0 && buttons[7]->getValue() == 0 && buttons[8]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
-	}
-	if (buttons[0]->getValue() == 0 && buttons[3]->getValue() == 0 && buttons[6]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
-	}
-	if (buttons[1]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[7]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
-	}
-	if (buttons[2]->getValue() == 0 && buttons[5]->getValue() == 0 && buttons[8]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
-	}
-	if (buttons[0]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[8]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
-	}
-	if (buttons[2]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[6]->getValue() == 0) {
-		for (int i = 0; i < 9; ++i)
-			buttons[i]->setValue(-1);
-		update();
-		QMessageBox lostMesasge;
-		lostMesasge.setText("you lost");
-		lostMesasge.exec();
-		return;
 	}
 	update();
+}
+bool Widget::isWin() {
+	if ((buttons[0]->getValue() == 1 && buttons[1]->getValue() == 1 && buttons[2]->getValue() == 1) ||
+		(buttons[3]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[5]->getValue() == 1) ||
+		(buttons[6]->getValue() == 1 && buttons[7]->getValue() == 1 && buttons[8]->getValue() == 1) ||
+		(buttons[0]->getValue() == 1 && buttons[3]->getValue() == 1 && buttons[6]->getValue() == 1) ||
+		(buttons[1]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[7]->getValue() == 1) ||
+		(buttons[2]->getValue() == 1 && buttons[5]->getValue() == 1 && buttons[8]->getValue() == 1) ||
+		(buttons[0]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[8]->getValue() == 1) ||
+		(buttons[2]->getValue() == 1 && buttons[4]->getValue() == 1 && buttons[6]->getValue() == 1))
+		return true;
+	return false;
+}
+bool Widget::isLose() {
+	if ((buttons[0]->getValue() == 0 && buttons[1]->getValue() == 0 && buttons[2]->getValue() == 0) ||
+		(buttons[3]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[5]->getValue() == 0) ||
+		(buttons[6]->getValue() == 0 && buttons[7]->getValue() == 0 && buttons[8]->getValue() == 0) ||
+		(buttons[0]->getValue() == 0 && buttons[3]->getValue() == 0 && buttons[6]->getValue() == 0) ||
+		(buttons[1]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[7]->getValue() == 0) ||
+		(buttons[2]->getValue() == 0 && buttons[5]->getValue() == 0 && buttons[8]->getValue() == 0) ||
+		(buttons[0]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[8]->getValue() == 0) ||
+		(buttons[2]->getValue() == 0 && buttons[4]->getValue() == 0 && buttons[6]->getValue() == 0))
+		return true;
+	return false;
 }

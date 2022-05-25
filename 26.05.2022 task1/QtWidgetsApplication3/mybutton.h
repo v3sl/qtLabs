@@ -2,6 +2,7 @@
 #define MYBUTTON_H
 
 #include <QPushButton>
+#include <QPainter>
 
 class MyButton : public QPushButton {
 public:
