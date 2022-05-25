@@ -65,8 +65,8 @@ private:
 	void addRadioEquipmentItemInformation(QString& information, const RadioEquipmentItem& radioEquipmentItem);
 	bool isIncompletedOrder(const RadioEquipmentItem& radioEquipmentItem);
 	QString getCurrentDate();
-	int compareDates(const QString& firstDate, QString& secondDate);
-	QString correctDate(QString& string);
+	int compareDates(const QString& firstDate, const QString& secondDate);
+	QString correctDate(const QString& string);
 	void showRadioEquipmentItems();
 	void showRadioEquipmentItem(const RadioEquipmentItem& radioEquipmentItem);
 };

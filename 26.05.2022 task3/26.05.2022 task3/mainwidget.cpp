@@ -39,6 +39,7 @@ void MainWidget::sortByDate() {
 void MainWidget::getCurrentDayReadiness() {
 	std::list<RadioEquipmentItem> currentDayItems;
 	QString localDate = getCurrentDate();
+	localDate = correctDate(localDate);
 	for (RadioEquipmentItem& radioEquipmentItem : radioEquipmentItems) {
 		if (compareDates(QString::fromStdString(radioEquipmentItem.getItemExecutionDate()), localDate) == 0)
 			currentDayItems.push_back(radioEquipmentItem);
@@ -193,6 +194,7 @@ void MainWidget::addRadioEquipmentItemInformation(QString& information, const Ra
 bool MainWidget::isIncompletedOrder(const RadioEquipmentItem& radioEquipmentItem) {
 	QString itemExecutionDate = QString::fromStdString(radioEquipmentItem.getItemExecutionDate());
 	QString localDate = getCurrentDate();
+	localDate = correctDate(localDate);
 	if (compareDates(QString::fromStdString(radioEquipmentItem.getItemExecutionDate()), localDate) == -1 &&
 		radioEquipmentItem.getItemTrim() == "not ready")
 		return true;
@@ -206,9 +208,7 @@ QString MainWidget::getCurrentDate() {
 	QString localDate = QString::number((currentTime->tm_mday)) + "." + QString::number(currentTime->tm_mon + 1) + "." + QString::number(currentTime->tm_year + 1900);
 	return localDate;
 }
-int MainWidget::compareDates(const QString& firstDate, QString& secondDate) {
-	secondDate = correctDate(secondDate);
-	secondDate = correctDate(secondDate);
+int MainWidget::compareDates(const QString& firstDate, const QString& secondDate) {
 	std::string firstItemExecutionYear = firstDate.toStdString().substr(6, 4);
 	std::string secondItemExecutionYear = secondDate.toStdString().substr(6, 4);
 	if (firstItemExecutionYear > secondItemExecutionYear)
@@ -233,11 +233,12 @@ int MainWidget::compareDates(const QString& firstDate, QString& secondDate) {
 	}
 	return 0;
 }
-QString MainWidget::correctDate(QString& date) {
+QString MainWidget::correctDate(const QString& date) {
 	if (date.size() == 9) {
 		std::string tempDate = date.toStdString();
 		tempDate.insert(3, "0");
-		date = QString::fromStdString(tempDate);
+		QString correctedDate = QString::fromStdString(tempDate);
+		return correctedDate;
 	}
 	return date;
 }
